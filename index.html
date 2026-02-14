@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página Vídeo</title>
+
+<style>
+body {
+margin: 0;
+background: black;
+display: flex;
+justify-content: center;
+}
+
+.container {
+position: relative;
+width: 100%;
+max-width: 500px;
+}
+
+video {
+width: 100%;
+display: block;
+}
+
+/* BOTÕES PRINCIPAIS */
+.botao {
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+padding: 18px 40px;
+background: #ff6600;
+color: white;
+border: none;
+border-radius: 10px;
+font-size: 18px;
+cursor: pointer;
+}
+
+.confirmar-presenca {
+top: 70%;
+}
+
+.localizacao {
+top: 82%;
+}
+
+/* BOTÃO DE SOM */
+.botao-som {
+position: absolute;
+bottom: 15px;
+right: 15px;
+background: #5bc0ff;
+border: none;
+border-radius: 50px;
+padding: 10px 15px;
+font-size: 14px;
+cursor: pointer;
+box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<video autoplay muted loop playsinline id="meuVideo">
+<source src="video.mp4" type="video/mp4">
+</video>
+
+<button class="botao confirmar-presenca"
+onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSdaL3aXOptOQDiSPHHgefvb_17B1ZCXpXuVKwZdMkEiMXvfmA/viewform'">
+Confirmar presença
+</button>
+
+<button class="botao localizacao"
+onclick="window.location.href='https://maps.app.goo.gl/vtiFR5W1aPsDCYB49'">
+Localização
+</button>
+
+<button class="botao-som" onclick="toggleSom()" id="botaoSom">
+🔇
+</button>
+
+</div>
+
+<script>
+function toggleSom() {
+var video = document.getElementById("meuVideo");
+var botao = document.getElementById("botaoSom");
+
+if (video.muted) {
+video.muted = false;
+botao.innerHTML = "🔊";
+} else {
+video.muted = true;
+botao.innerHTML = "🔇";
+}
+}
+</script>
+
+</body>
+</html>
